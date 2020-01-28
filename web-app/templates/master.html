@@ -1,0 +1,25 @@
+{% extends 'admin/base.html' %}
+
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"></script>
+</head>
+
+{% block access_control %}
+
+{% if current_user.is_authenticated %}
+	<div class="btn-group pull-right">
+
+		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			<i class="icon-user"></i> {{ current_user.login }} <span class="caret"></span>
+		</a>
+
+		<ul class="dropdown-menu">
+			<li><a href="{{ url_for('admin.logout_view') }}">log out</a></li>
+		</ul>
+
+	</div>
+{% endif %}
+
+{% endblock %}
