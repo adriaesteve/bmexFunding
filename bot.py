@@ -243,7 +243,7 @@ class FundingBot:
 
         self.could_hedge = False
 
-    def exit_position(self, market=False, wait_for_fill=True) -> None:
+    def exit_position(self, market=False, wait_for_fill=False) -> None:
         self.logger.info('exiting current position. at market: %s' %
                          ('true' if market else 'false'))
 

@@ -24,7 +24,7 @@ def half_funding(bot: FundingBot) -> None:
 
     bot.could_hedge = False
 
-    bot.exit_position(market=False, wait_for_fill=True)
+    bot.exit_position(market=False, wait_for_fill=False)
 
     bot.cancel_open_orders()
 
@@ -51,7 +51,7 @@ def funding_over(bot: FundingBot) -> None:
     
     sleep(15)
     
-    bot.exit_position(market=False, wait_for_fill=True)
+    bot.exit_position(market=False, wait_for_fill=False)
     
     logger.info('FI funding_over')
 
@@ -73,7 +73,7 @@ def main() -> None:
     
     #Test
     #bot.print_status()
-    half_funding(bot)
+    #half_funding(bot)
     #Fi test
     
     schedule.every().day.at(settings.HF_A).do(half_funding, bot)
